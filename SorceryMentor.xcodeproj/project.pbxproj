@@ -1,0 +1,637 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F9608CC32B8CE25400C7126E /* SorceryMentorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9608CC22B8CE25400C7126E /* SorceryMentorApp.swift */; };
+		F9608CC52B8CE25400C7126E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9608CC42B8CE25400C7126E /* ContentView.swift */; };
+		F9608CC72B8CE25800C7126E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9608CC62B8CE25800C7126E /* Assets.xcassets */; };
+		F9608CCA2B8CE25800C7126E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9608CC92B8CE25800C7126E /* Preview Assets.xcassets */; };
+		F9608CD42B8CE25800C7126E /* SorceryMentorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9608CD32B8CE25800C7126E /* SorceryMentorTests.swift */; };
+		F9608CDE2B8CE25800C7126E /* SorceryMentorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9608CDD2B8CE25800C7126E /* SorceryMentorUITests.swift */; };
+		F9608CE02B8CE25800C7126E /* SorceryMentorUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9608CDF2B8CE25800C7126E /* SorceryMentorUITestsLaunchTests.swift */; };
+		F9608CEF2B8CE2F500C7126E /* SpeechRecognition.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9608CEE2B8CE2F500C7126E /* SpeechRecognition.swift */; };
+		F9B1CFFC2B8F9BE100AE67D9 /* DAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B1CFFB2B8F9BE100AE67D9 /* DAO.swift */; };
+		F9B1CFFF2B8FD69300AE67D9 /* EscolhaFeiticos.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B1CFFE2B8FD69300AE67D9 /* EscolhaFeiticos.swift */; };
+		F9B1D0012B90EE3D00AE67D9 /* FunçõesMovimentos.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B1D0002B90EE3D00AE67D9 /* FunçõesMovimentos.swift */; };
+		F9B1D0032B90EE6300AE67D9 /* Visuais.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B1D0022B90EE6300AE67D9 /* Visuais.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F9608CD02B8CE25800C7126E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F9608CB72B8CE25400C7126E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F9608CBE2B8CE25400C7126E;
+			remoteInfo = SorceryMentor;
+		};
+		F9608CDA2B8CE25800C7126E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F9608CB72B8CE25400C7126E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F9608CBE2B8CE25400C7126E;
+			remoteInfo = SorceryMentor;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F9608CBF2B8CE25400C7126E /* SorceryMentor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SorceryMentor.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9608CC22B8CE25400C7126E /* SorceryMentorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SorceryMentorApp.swift; sourceTree = "<group>"; };
+		F9608CC42B8CE25400C7126E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F9608CC62B8CE25800C7126E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F9608CC92B8CE25800C7126E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F9608CCF2B8CE25800C7126E /* SorceryMentorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SorceryMentorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9608CD32B8CE25800C7126E /* SorceryMentorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SorceryMentorTests.swift; sourceTree = "<group>"; };
+		F9608CD92B8CE25800C7126E /* SorceryMentorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SorceryMentorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9608CDD2B8CE25800C7126E /* SorceryMentorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SorceryMentorUITests.swift; sourceTree = "<group>"; };
+		F9608CDF2B8CE25800C7126E /* SorceryMentorUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SorceryMentorUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F9608CEE2B8CE2F500C7126E /* SpeechRecognition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognition.swift; sourceTree = "<group>"; };
+		F9B1CFFB2B8F9BE100AE67D9 /* DAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DAO.swift; sourceTree = "<group>"; };
+		F9B1CFFE2B8FD69300AE67D9 /* EscolhaFeiticos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EscolhaFeiticos.swift; sourceTree = "<group>"; };
+		F9B1D0002B90EE3D00AE67D9 /* FunçõesMovimentos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FunçõesMovimentos.swift"; sourceTree = "<group>"; };
+		F9B1D0022B90EE6300AE67D9 /* Visuais.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Visuais.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F9608CBC2B8CE25400C7126E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F9608CCC2B8CE25800C7126E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F9608CD62B8CE25800C7126E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F9608CB62B8CE25400C7126E = {
+			isa = PBXGroup;
+			children = (
+				F9608CC12B8CE25400C7126E /* SorceryMentor */,
+				F9608CD22B8CE25800C7126E /* SorceryMentorTests */,
+				F9608CDC2B8CE25800C7126E /* SorceryMentorUITests */,
+				F9608CC02B8CE25400C7126E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F9608CC02B8CE25400C7126E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F9608CBF2B8CE25400C7126E /* SorceryMentor.app */,
+				F9608CCF2B8CE25800C7126E /* SorceryMentorTests.xctest */,
+				F9608CD92B8CE25800C7126E /* SorceryMentorUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F9608CC12B8CE25400C7126E /* SorceryMentor */ = {
+			isa = PBXGroup;
+			children = (
+				F9B1CFFD2B8FD65C00AE67D9 /* Views */,
+				F9B1CFFA2B8F9BCF00AE67D9 /* models */,
+				F9608CC62B8CE25800C7126E /* Assets.xcassets */,
+				F9608CC82B8CE25800C7126E /* Preview Content */,
+			);
+			path = SorceryMentor;
+			sourceTree = "<group>";
+		};
+		F9608CC82B8CE25800C7126E /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				F9608CC92B8CE25800C7126E /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		F9608CD22B8CE25800C7126E /* SorceryMentorTests */ = {
+			isa = PBXGroup;
+			children = (
+				F9608CD32B8CE25800C7126E /* SorceryMentorTests.swift */,
+			);
+			path = SorceryMentorTests;
+			sourceTree = "<group>";
+		};
+		F9608CDC2B8CE25800C7126E /* SorceryMentorUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F9608CDD2B8CE25800C7126E /* SorceryMentorUITests.swift */,
+				F9608CDF2B8CE25800C7126E /* SorceryMentorUITestsLaunchTests.swift */,
+			);
+			path = SorceryMentorUITests;
+			sourceTree = "<group>";
+		};
+		F9B1CFFA2B8F9BCF00AE67D9 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				F9B1CFFB2B8F9BE100AE67D9 /* DAO.swift */,
+				F9608CEE2B8CE2F500C7126E /* SpeechRecognition.swift */,
+				F9B1D0002B90EE3D00AE67D9 /* FunçõesMovimentos.swift */,
+				F9B1D0022B90EE6300AE67D9 /* Visuais.swift */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
+		F9B1CFFD2B8FD65C00AE67D9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F9608CC42B8CE25400C7126E /* ContentView.swift */,
+				F9608CC22B8CE25400C7126E /* SorceryMentorApp.swift */,
+				F9B1CFFE2B8FD69300AE67D9 /* EscolhaFeiticos.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F9608CBE2B8CE25400C7126E /* SorceryMentor */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F9608CE32B8CE25800C7126E /* Build configuration list for PBXNativeTarget "SorceryMentor" */;
+			buildPhases = (
+				F9608CBB2B8CE25400C7126E /* Sources */,
+				F9608CBC2B8CE25400C7126E /* Frameworks */,
+				F9608CBD2B8CE25400C7126E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SorceryMentor;
+			productName = SorceryMentor;
+			productReference = F9608CBF2B8CE25400C7126E /* SorceryMentor.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F9608CCE2B8CE25800C7126E /* SorceryMentorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F9608CE62B8CE25800C7126E /* Build configuration list for PBXNativeTarget "SorceryMentorTests" */;
+			buildPhases = (
+				F9608CCB2B8CE25800C7126E /* Sources */,
+				F9608CCC2B8CE25800C7126E /* Frameworks */,
+				F9608CCD2B8CE25800C7126E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F9608CD12B8CE25800C7126E /* PBXTargetDependency */,
+			);
+			name = SorceryMentorTests;
+			productName = SorceryMentorTests;
+			productReference = F9608CCF2B8CE25800C7126E /* SorceryMentorTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		F9608CD82B8CE25800C7126E /* SorceryMentorUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F9608CE92B8CE25800C7126E /* Build configuration list for PBXNativeTarget "SorceryMentorUITests" */;
+			buildPhases = (
+				F9608CD52B8CE25800C7126E /* Sources */,
+				F9608CD62B8CE25800C7126E /* Frameworks */,
+				F9608CD72B8CE25800C7126E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F9608CDB2B8CE25800C7126E /* PBXTargetDependency */,
+			);
+			name = SorceryMentorUITests;
+			productName = SorceryMentorUITests;
+			productReference = F9608CD92B8CE25800C7126E /* SorceryMentorUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F9608CB72B8CE25400C7126E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1520;
+				LastUpgradeCheck = 1520;
+				TargetAttributes = {
+					F9608CBE2B8CE25400C7126E = {
+						CreatedOnToolsVersion = 15.2;
+					};
+					F9608CCE2B8CE25800C7126E = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = F9608CBE2B8CE25400C7126E;
+					};
+					F9608CD82B8CE25800C7126E = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = F9608CBE2B8CE25400C7126E;
+					};
+				};
+			};
+			buildConfigurationList = F9608CBA2B8CE25400C7126E /* Build configuration list for PBXProject "SorceryMentor" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F9608CB62B8CE25400C7126E;
+			productRefGroup = F9608CC02B8CE25400C7126E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F9608CBE2B8CE25400C7126E /* SorceryMentor */,
+				F9608CCE2B8CE25800C7126E /* SorceryMentorTests */,
+				F9608CD82B8CE25800C7126E /* SorceryMentorUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F9608CBD2B8CE25400C7126E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F9608CCA2B8CE25800C7126E /* Preview Assets.xcassets in Resources */,
+				F9608CC72B8CE25800C7126E /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F9608CCD2B8CE25800C7126E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F9608CD72B8CE25800C7126E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F9608CBB2B8CE25400C7126E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F9B1CFFC2B8F9BE100AE67D9 /* DAO.swift in Sources */,
+				F9B1CFFF2B8FD69300AE67D9 /* EscolhaFeiticos.swift in Sources */,
+				F9608CC52B8CE25400C7126E /* ContentView.swift in Sources */,
+				F9B1D0032B90EE6300AE67D9 /* Visuais.swift in Sources */,
+				F9608CEF2B8CE2F500C7126E /* SpeechRecognition.swift in Sources */,
+				F9B1D0012B90EE3D00AE67D9 /* FunçõesMovimentos.swift in Sources */,
+				F9608CC32B8CE25400C7126E /* SorceryMentorApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F9608CCB2B8CE25800C7126E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F9608CD42B8CE25800C7126E /* SorceryMentorTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F9608CD52B8CE25800C7126E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F9608CDE2B8CE25800C7126E /* SorceryMentorUITests.swift in Sources */,
+				F9608CE02B8CE25800C7126E /* SorceryMentorUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F9608CD12B8CE25800C7126E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F9608CBE2B8CE25400C7126E /* SorceryMentor */;
+			targetProxy = F9608CD02B8CE25800C7126E /* PBXContainerItemProxy */;
+		};
+		F9608CDB2B8CE25800C7126E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F9608CBE2B8CE25400C7126E /* SorceryMentor */;
+			targetProxy = F9608CDA2B8CE25800C7126E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		F9608CE12B8CE25800C7126E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F9608CE22B8CE25800C7126E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F9608CE42B8CE25800C7126E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"SorceryMentor/Preview Content\"";
+				DEVELOPMENT_TEAM = G657ETJXLM;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "mensagem camera";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "mensagem mic";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Giovana.SorceryMentor;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F9608CE52B8CE25800C7126E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"SorceryMentor/Preview Content\"";
+				DEVELOPMENT_TEAM = G657ETJXLM;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "mensagem camera";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "mensagem mic";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Giovana.SorceryMentor;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		F9608CE72B8CE25800C7126E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G657ETJXLM;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Giovana.SorceryMentorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SorceryMentor.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SorceryMentor";
+			};
+			name = Debug;
+		};
+		F9608CE82B8CE25800C7126E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G657ETJXLM;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Giovana.SorceryMentorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SorceryMentor.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SorceryMentor";
+			};
+			name = Release;
+		};
+		F9608CEA2B8CE25800C7126E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G657ETJXLM;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Giovana.SorceryMentorUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SorceryMentor;
+			};
+			name = Debug;
+		};
+		F9608CEB2B8CE25800C7126E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G657ETJXLM;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Giovana.SorceryMentorUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SorceryMentor;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F9608CBA2B8CE25400C7126E /* Build configuration list for PBXProject "SorceryMentor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F9608CE12B8CE25800C7126E /* Debug */,
+				F9608CE22B8CE25800C7126E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F9608CE32B8CE25800C7126E /* Build configuration list for PBXNativeTarget "SorceryMentor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F9608CE42B8CE25800C7126E /* Debug */,
+				F9608CE52B8CE25800C7126E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F9608CE62B8CE25800C7126E /* Build configuration list for PBXNativeTarget "SorceryMentorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F9608CE72B8CE25800C7126E /* Debug */,
+				F9608CE82B8CE25800C7126E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F9608CE92B8CE25800C7126E /* Build configuration list for PBXNativeTarget "SorceryMentorUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F9608CEA2B8CE25800C7126E /* Debug */,
+				F9608CEB2B8CE25800C7126E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F9608CB72B8CE25400C7126E /* Project object */;
+}
