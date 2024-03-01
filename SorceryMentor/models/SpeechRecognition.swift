@@ -31,6 +31,7 @@ class SpeechToText: ObservableObject {
     var language: String
     /// Palavras que você falou
     @Published private(set) var words: [String]
+    
     @Published private(set) var currentWord: String
     
     /// Palavars que você busca
@@ -42,7 +43,12 @@ class SpeechToText: ObservableObject {
         }
     }
     
-    /// Código nosso!
+//    func clearWords() {
+   //        self.words = []
+   //        }
+   //    }
+    
+    
     func confere() {
 //        print(buscadas.split(separator: " "))
         print("WORDS = \(words)")
@@ -56,13 +62,7 @@ class SpeechToText: ObservableObject {
         print("BUSCADAS AFTER = \(buscadas)")
     }
     
-//    func checkIfDesiredPhraseIsSpoken() async -> Bool {
-//            let spokenPhrase = words.joined(separator: " ")
-//
-//            // Verifique se a frase desejada foi dita (ignorando maiúsculas/minúsculas)
-//            return spokenPhrase.lowercased().contains("lumos")
-//        }
-//    
+    
     private var audioEngine: AVAudioEngine?
     private var request: SFSpeechAudioBufferRecognitionRequest?
     private var task: SFSpeechRecognitionTask?
@@ -76,7 +76,7 @@ class SpeechToText: ObservableObject {
          task: SFSpeechRecognitionTask? = nil,
          recognizer: SFSpeechRecognizer?) {
         self.language = language
-        self.words = words /*+ ["i"]*/
+        self.words = words + ["expecto"]
         self.currentWord = currentWord
         self.audioEngine = audioEngine
         self.request = request
@@ -154,10 +154,7 @@ class SpeechToText: ObservableObject {
         let audioEngine = AVAudioEngine()
         
         let request = SFSpeechAudioBufferRecognitionRequest()
-      //  request.shouldReportPartialResults = true
-        //request.requiresOnDeviceRecognition = true // TESTE
-       // request.
-        
+    
         let audioSession = AVAudioSession.sharedInstance()
         try audioSession.setCategory(.playAndRecord, mode: .measurement, options: .duckOthers)
         try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
@@ -215,6 +212,8 @@ class SpeechToText: ObservableObject {
         return ""
     }
 }
+
+
 
 extension SFSpeechRecognizer {
     static func hasAuthorizationToRecognize() async -> Bool {

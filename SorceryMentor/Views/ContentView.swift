@@ -52,11 +52,13 @@ struct ContentView: View {
             isCorrect = newValue.isEmpty
         })
 
-        .onChange(of: speechToText.words, {
+        .onChange(of: speechToText.currentWord) { newCurrentWord in
             if !isCorrect {
+                print("Tente novamente: \(newCurrentWord)")
                 Text("Tente novamente").foregroundStyle(.red)
             }
-        })
+        }
+
         
         .onChange(of: isCorrect) { newValue in
                     if newValue {
@@ -74,6 +76,7 @@ struct ContentView: View {
                 }
     }
 }
+
 //
 //#Preview {
 //    ContentView(indFeitico: .constant(0), telaAtual: .constant(.audio), speechToText: <#SpeechToText#>)
