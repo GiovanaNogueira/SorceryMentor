@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BBF45E002B9248F000760387 /* Patronus.usdz in Resources */ = {isa = PBXBuildFile; fileRef = BBF45DFF2B9248F000760387 /* Patronus.usdz */; };
+		BBF45E052B9250AC00760387 /* Moshinta.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BBF45E022B92506000760387 /* Moshinta.ttf */; };
+		BBF45E062B9250B000760387 /* DejaVuSerif.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BBF45E032B92508500760387 /* DejaVuSerif.ttf */; };
+		BBF45E072B9250B600760387 /* DejaVuSerif-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BBF45E042B92508E00760387 /* DejaVuSerif-Bold.ttf */; };
 		F9608CC32B8CE25400C7126E /* SorceryMentorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9608CC22B8CE25400C7126E /* SorceryMentorApp.swift */; };
 		F9608CC52B8CE25400C7126E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9608CC42B8CE25400C7126E /* ContentView.swift */; };
 		F9608CC72B8CE25800C7126E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9608CC62B8CE25800C7126E /* Assets.xcassets */; };
@@ -39,6 +43,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BBF45DFF2B9248F000760387 /* Patronus.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Patronus.usdz; sourceTree = "<group>"; };
+		BBF45E022B92506000760387 /* Moshinta.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Moshinta.ttf; sourceTree = "<group>"; };
+		BBF45E032B92508500760387 /* DejaVuSerif.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = DejaVuSerif.ttf; sourceTree = "<group>"; };
+		BBF45E042B92508E00760387 /* DejaVuSerif-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DejaVuSerif-Bold.ttf"; sourceTree = "<group>"; };
 		F9608CBF2B8CE25400C7126E /* SorceryMentor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SorceryMentor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9608CC22B8CE25400C7126E /* SorceryMentorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SorceryMentorApp.swift; sourceTree = "<group>"; };
 		F9608CC42B8CE25400C7126E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -107,6 +115,9 @@
 				F9B1CFFD2B8FD65C00AE67D9 /* Views */,
 				F9B1CFFA2B8F9BCF00AE67D9 /* models */,
 				F9608CC62B8CE25800C7126E /* Assets.xcassets */,
+				BBF45E022B92506000760387 /* Moshinta.ttf */,
+				BBF45E032B92508500760387 /* DejaVuSerif.ttf */,
+				BBF45E042B92508E00760387 /* DejaVuSerif-Bold.ttf */,
 				F9608CC82B8CE25800C7126E /* Preview Content */,
 			);
 			path = SorceryMentor;
@@ -144,6 +155,7 @@
 				F9608CEE2B8CE2F500C7126E /* SpeechRecognition.swift */,
 				F9B1D0002B90EE3D00AE67D9 /* FunçõesMovimentos.swift */,
 				F9B1D0022B90EE6300AE67D9 /* Visuais.swift */,
+				BBF45DFF2B9248F000760387 /* Patronus.usdz */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -262,8 +274,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBF45E062B9250B000760387 /* DejaVuSerif.ttf in Resources */,
 				F9608CCA2B8CE25800C7126E /* Preview Assets.xcassets in Resources */,
+				BBF45E072B9250B600760387 /* DejaVuSerif-Bold.ttf in Resources */,
+				BBF45E002B9248F000760387 /* Patronus.usdz in Resources */,
 				F9608CC72B8CE25800C7126E /* Assets.xcassets in Resources */,
+				BBF45E052B9250AC00760387 /* Moshinta.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -461,8 +477,11 @@
 				DEVELOPMENT_TEAM = G657ETJXLM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SorceryMentor/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSCameraUsageDescription = "mensagem camera";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "mensagem mic";
+				INFOPLIST_KEY_NSMotionUsageDescription = "";
 				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -494,8 +513,11 @@
 				DEVELOPMENT_TEAM = G657ETJXLM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SorceryMentor/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSCameraUsageDescription = "mensagem camera";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "mensagem mic";
+				INFOPLIST_KEY_NSMotionUsageDescription = "";
 				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

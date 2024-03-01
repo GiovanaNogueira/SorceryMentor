@@ -8,6 +8,8 @@ struct ContentView: View {
     @State private var count: Int = 0
     @ObservedObject var speechToText: SpeechToText
     @State private var isCorrect = false
+    
+    @State var isShowingTryAgain = false
 
     @State private var isHolding = false
     
@@ -33,29 +35,38 @@ struct ContentView: View {
                             isHolding = true
 //                             count += 1
                             speechToText.startTranscribing()
+                            isShowingTryAgain = false
                         }
                         .onEnded { value in
-                            isHolding = false
                             speechToText.stopTranscribing()
+                            isHolding = false
                         }
                 )
             Spacer()
-            HStack{
-                Text("Palavras que falamos:")
-                ForEach(speechToText.words, id: \.self) { word in
-                    Text(word)
-                }
+            
+            if isShowingTryAgain{
+                Text("Tente novamente").foregroundStyle(.red)
             }
+            
+//            HStack{
+//                Text("Palavras que falamos:")
+//                ForEach(speechToText.words, id: \.self) { word in
+//                    Text(word)
+//                }
+//            }
         }
         .padding()
+        .onAppear{
+            self.speechToText.words = ["expecto"]
+            speechToText.mudaFeitico(nomeDoFeiticoNovo: model.feiticos[indFeitico].nome)
+        }
         .onChange(of: speechToText.buscadas, { oldValue, newValue in
             isCorrect = newValue.isEmpty
         })
 
         .onChange(of: speechToText.currentWord) { newCurrentWord in
             if !isCorrect {
-                print("Tente novamente: \(newCurrentWord)")
-                Text("Tente novamente").foregroundStyle(.red)
+                isShowingTryAgain = true
             }
         }
 

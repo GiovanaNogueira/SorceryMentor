@@ -25,7 +25,7 @@ struct EscolhaFeiticos: View {
     @State private var telaAtual: Tela = .telaInicial
     @Environment(\.sizeCategory) var sizeCategory
     @State var indFeitico: Int = 0
-    @StateObject private var speechToText = SpeechToText(language: "en-US")
+    @StateObject var speechToText = SpeechToText(language: "en-US")
 
 
     var body: some View {
@@ -52,7 +52,7 @@ struct EscolhaFeiticos: View {
         case .movimento1:
             Movimento1View( mudarTelaParaDetalhes: {telaAtual = .detalhe})
         case .movimento2:
-            Movimento2View( mudarTelaParaDetalhes: {telaAtual = .detalhe})
+            Movimento2View( speechToText: speechToText, mudarTelaParaDetalhes: {telaAtual = .detalhe})
         case .movimento3:
             Movimento3View(mudarTelaParaDetalhes: {telaAtual = .detalhe})
         }
@@ -82,12 +82,12 @@ struct TelaInicialView: View {
             Text("Welcome Wizards to")
                 .font(.custom("Moshinta", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 16)))
             
-            Text("RONNY'S")
+            Text("SORCERY")
                 .font(.custom("DejaVuSerif", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 24)))
                 .multilineTextAlignment(.center)
                 .padding(.top, 1)
             
-            Text("MOVEMENTS")
+            Text("MENTOR")
                 .font(.custom("DejaVuSerif", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 22)))
                 .multilineTextAlignment(.center)
                 .padding(.bottom, 100)
@@ -151,11 +151,8 @@ struct DetalheView: View {
                 }
                 
                 Button(action: {
-                    
-                    //                    mudarTelaParaFeitiço1
-                    speechToText.mudaFeitico(nomeDoFeiticoNovo: model.feiticos[0].nome)
-                    telaAtual = .feitiço1
                     indFeitico = 0
+                    telaAtual = .feitiço1
                 }, label: {
                     HStack {
                         Image(systemName: "flashlight.off.fill")
@@ -176,9 +173,9 @@ struct DetalheView: View {
                 //.background(Color.teal)
                 .cornerRadius(10)
 
-                Button( action: { speechToText.mudaFeitico(nomeDoFeiticoNovo: model.feiticos[1].nome)
-                    telaAtual = .feitiço2
+                Button( action: {
                     indFeitico = 1
+                    telaAtual = .feitiço2
                 }, label: {
                     HStack {
                         Image(systemName: "lightspectrum.horizontal")
@@ -196,9 +193,9 @@ struct DetalheView: View {
                 //.padding()
                 .cornerRadius(10)
                 
-                Button(action:{ speechToText.mudaFeitico(nomeDoFeiticoNovo: model.feiticos[2].nome)
-                    telaAtual = .feitiço3
+                Button(action:{
                     indFeitico = 2
+                    telaAtual = .feitiço3
                 }, label: {
                     HStack {
                         Image(systemName: "dog.fill")
@@ -225,14 +222,16 @@ struct DetalheView: View {
 }
 
 struct Feitico1View: View {
+    // Estado para controlar a imagem atual
+    @State private var currentIndex = 0
+    // Estado para controlar a opacidade durante a transição
+    @State private var opacity = 1.0
+    @Environment(\.sizeCategory) var sizeCategory
+    
     var mudarParaAudio1: () -> Void
     var mudarTelaParaDetalhes: () -> Void
     
     let images = ["imagem1", "imagem2", "imagem3"]
-        // Estado para controlar a imagem atual
-    @State private var currentIndex = 0
-        // Estado para controlar a opacidade durante a transição
-    @State private var opacity = 1.0
     
     var body: some View {
         
@@ -259,11 +258,24 @@ struct Feitico1View: View {
                             }
                         }
             VStack{
-                Text("Descrição do feitiço")
-                //Text("Descrição do feitiço")
-                Button("Ir para o treino de voz", action: mudarParaAudio1)
+                Spacer()
+                
+                Text("O feitiço Lumos é usado\npara conjurar um feixe de\nluz na ponta da varinha.")
+                    .multilineTextAlignment(.center)
+                    .font(.custom("DejaVuSerif-Bold", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 12)))
+                    .foregroundColor(.black)
+                    .padding(.horizontal, 50)
+                
+                Button("Continuar", action: mudarParaAudio1)
+                    .padding(.top, 10)
+                    .font(.custom("DejaVuSerif-Bold", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 11)))
+                    .foregroundColor(.brown)
+                
+                Spacer()
                 
                 Button("Voltar para feitiços", action: mudarTelaParaDetalhes)
+                    .foregroundColor(.brown)
+                    .font(.custom("DejaVuSerif-Bold", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 11)))
             }
         }
         }
@@ -271,6 +283,8 @@ struct Feitico1View: View {
 
 
 struct Feitico2View: View {
+    @Environment(\.sizeCategory) var sizeCategory
+    
     var mudarParaAudio2: () -> Void
     var mudarTelaParaDetalhes: () -> Void
 
@@ -285,12 +299,16 @@ struct Feitico2View: View {
                 Button("Ir para o treino de voz", action: mudarParaAudio2)
                 
                 Button("Voltar para feitiços", action: mudarTelaParaDetalhes)
+                    .foregroundColor(.brown)
+                    .font(.custom("DejaVuSerif-Bold", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 11)))
             }
         }
     }
 }
 
 struct Feitico3View: View {
+    @Environment(\.sizeCategory) var sizeCategory
+
     var mudarParaAudio3: () -> Void
     var mudarTelaParaDetalhes: () -> Void
 
@@ -302,51 +320,70 @@ struct Feitico3View: View {
                 .ignoresSafeArea()
             VStack{
                 Text("Descrição do feitiço")
+                
                 Button("Ir para o treino de voz", action: mudarParaAudio3)
 
                 Button("Voltar para feitiços", action: mudarTelaParaDetalhes)
+                    .foregroundColor(.brown)
+                    .font(.custom("DejaVuSerif-Bold", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 11)))
             }
         }
     }
 }
 
 struct TreinoMovimento1View: View{
+    @Environment(\.sizeCategory) var sizeCategory
     @ObservedObject var motionDetector = MotionDetectorLumos()
     var mudarTelaParaDetalhes: () -> Void
     var mudarTelaParaMovimento1: () -> Void
     
     var body: some View{
         Text ("Treino do movimento 1")
+        
         Button("Ir para movimento 1", action: mudarTelaParaMovimento1)
+        
         Button("Voltar para feitiços", action: mudarTelaParaDetalhes)
+            .foregroundColor(.brown)
+            .font(.custom("DejaVuSerif-Bold", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 11)))
     }
 }
 
 struct TreinoMovimento2View: View{
+    @Environment(\.sizeCategory) var sizeCategory
     @StateObject private var motionDetector = MotionDetectorExpelliarmus()
     var mudarTelaParaDetalhes: () -> Void
     var mudarTelaParaMovimento2: () -> Void
     
     var body: some View{
         Text ("Treino do movimento 2")
+       
         Button("Ir para movimento 2", action: mudarTelaParaMovimento2)
+       
         Button("Voltar para feitiços", action: mudarTelaParaDetalhes)
+            .foregroundColor(.brown)
+            .font(.custom("DejaVuSerif-Bold", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 11)))
     }
 }
 
 struct TreinoMovimento3View: View{
+    @Environment(\.sizeCategory) var sizeCategory
     var mudarTelaParaDetalhes: () -> Void
     var mudarTelaParaMovimento3: () -> Void
     
     var body: some View{
         Text ("Treino do movimento 3")
+       
         Button("Ir para movimento 3", action: mudarTelaParaMovimento3)
+        
         Button("Voltar para feitiços", action: mudarTelaParaDetalhes)
+            .foregroundColor(.brown)
+            .font(.custom("DejaVuSerif-Bold", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 11)))
     }
 }
 
 
 struct Movimento1View: View{
+    @Environment(\.sizeCategory) var sizeCategory
     @ObservedObject var motionDetector = MotionDetectorLumos()
     var mudarTelaParaDetalhes: () -> Void
     
@@ -354,27 +391,55 @@ struct Movimento1View: View{
     Text ("Mexa o celular em movimento circular")
         
         Button("Voltar para feitiços", action: mudarTelaParaDetalhes)
+            .foregroundColor(.brown)
+            .font(.custom("DejaVuSerif-Bold", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 11)))
     }
 }
 
 struct Movimento2View: View{
+    @Environment(\.sizeCategory) var sizeCategory
     @StateObject private var motionDetector = MotionDetectorExpelliarmus()
+    @ObservedObject var speechToText: SpeechToText
+    
+    let generator = UINotificationFeedbackGenerator()
+                
+    
     var mudarTelaParaDetalhes: () -> Void
     
     var body: some View{
-    Text ("Movimento 2")
-        
-        Button("Voltar para feitiços", action: mudarTelaParaDetalhes)
+        VStack {
+            Text ("Movimento 2")
+            
+            Button("Voltar para feitiços", action: mudarTelaParaDetalhes)
+                .foregroundColor(.brown)
+                .font(.custom("DejaVuSerif-Bold", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 11)))
+        }
+        .onChange(of: motionDetector.movementDetected) { oldValue, newValue in
+            if newValue{
+                print("oi")
+                generator.notificationOccurred(.success)
+            }
+        }.onAppear{
+            speechToText.stopTranscribing()
+        }
     }
+    
 }
 
 struct Movimento3View: View{
+    @Environment(\.sizeCategory) var sizeCategory
+    @StateObject private var viewModel = ModelViewModel()
+
     var mudarTelaParaDetalhes: () -> Void
     
     var body: some View{
     Text ("Movimento 3")
         
+        ARViewContainer(viewModel: viewModel)
+        
         Button("Voltar para feitiços", action: mudarTelaParaDetalhes)
+            .foregroundColor(.brown)
+            .font(.custom("DejaVuSerif-Bold", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 11)))
     }
 }
 

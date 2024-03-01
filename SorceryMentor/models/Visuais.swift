@@ -49,7 +49,7 @@ struct EstiloFeiticos: ButtonStyle {
             configuration.label
             .foregroundStyle(.white)
             .padding(.vertical, 2)
-            .padding(.horizontal, 150)
+            .padding(.horizontal, 10)
             .background(.brown, in: RoundedRectangle(cornerRadius: 3))
             //.scaleEffect(configuration.isPressed ? 1.1 : 1.0)
             .opacity(configuration.isPressed ? 0.5 : 1.0)

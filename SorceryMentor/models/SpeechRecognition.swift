@@ -30,7 +30,7 @@ class SpeechToText: ObservableObject {
     }
     var language: String
     /// Palavras que você falou
-    @Published private(set) var words: [String]
+    @Published var words: [String]
     
     @Published private(set) var currentWord: String
     
@@ -42,12 +42,6 @@ class SpeechToText: ObservableObject {
             return "\(word)"
         }
     }
-    
-//    func clearWords() {
-   //        self.words = []
-   //        }
-   //    }
-    
     
     func confere() {
 //        print(buscadas.split(separator: " "))
@@ -76,7 +70,7 @@ class SpeechToText: ObservableObject {
          task: SFSpeechRecognitionTask? = nil,
          recognizer: SFSpeechRecognizer?) {
         self.language = language
-        self.words = words + ["expecto"]
+        self.words = words + ["Expecto"]
         self.currentWord = currentWord
         self.audioEngine = audioEngine
         self.request = request
@@ -148,6 +142,15 @@ class SpeechToText: ObservableObject {
         audioEngine = nil
         request = nil
         task = nil
+        
+        let audioSession = AVAudioSession.sharedInstance()
+
+        do{
+            try audioSession.setCategory(.playback, mode: .measurement, options: .duckOthers)
+        }
+        catch{
+            print(error)
+        }
     }
     
     private static func prepareEngine() throws -> (AVAudioEngine, SFSpeechAudioBufferRecognitionRequest) {
@@ -212,7 +215,6 @@ class SpeechToText: ObservableObject {
         return ""
     }
 }
-
 
 
 extension SFSpeechRecognizer {

@@ -9,6 +9,9 @@ import CoreMotion
 import SwiftUI
 import AVFoundation
 import SpriteKit
+import ARKit
+import SceneKit
+import AudioToolbox
 
 //TODO: consertar a luz - desligar quando sair
 class MotionDetectorLumos: ObservableObject {
@@ -62,7 +65,7 @@ class MotionDetectorExpelliarmus: ObservableObject {
     private var motionManager = CMMotionManager()
     private let queue = OperationQueue()
     private var lastYAcceleration: Double = 0
-    private var movementDetected = false
+    @Published var movementDetected = false
 
     var movementThreshold: Double = 1.5// Sensibilidade do movimento
 
@@ -79,6 +82,9 @@ class MotionDetectorExpelliarmus: ObservableObject {
             
             let yAcceleration = data.acceleration.y
             let variation = yAcceleration - strongSelf.lastYAcceleration
+            
+            //print(yAcceleration)
+            //print(variation)
             
             // Detecta um movimento brusco para cima e para baixo
             if !strongSelf.movementDetected && abs(variation) > strongSelf.movementThreshold {
@@ -100,3 +106,86 @@ class MotionDetectorExpelliarmus: ObservableObject {
         AudioServicesPlaySystemSound(kSystemSoundID_Vibrate) // Vibra o dispositivo
     }
 }
+
+class ModelViewModel: ObservableObject {
+    @Published var isModelVisible = false
+    private var motionManager = CMMotionManager()
+    
+    // Novos limiares e variáveis para detectar um "movimento de varinha"
+    private let gestureThreshold: Double = 1.0 // Ajuste baseado na experimentação
+    private var gestureDetected = false
+
+    init() {
+        startMonitoringDeviceMovement()
+    }
+
+    private func startMonitoringDeviceMovement() {
+        guard motionManager.isDeviceMotionAvailable else { return }
+        
+        motionManager.deviceMotionUpdateInterval = 0.05 // Aumentar a frequência para capturar o gesto rapidamente
+        
+        motionManager.startDeviceMotionUpdates(to: .main) { [weak self] (motion, error) in
+            guard let strongSelf = self, let motion = motion, error == nil else {
+                print("Erro ao acessar os dados de movimento do dispositivo: \(error?.localizedDescription ?? "Unknown error")")
+                return
+            }
+
+            // Analisa aceleração nos eixos x e y para detectar um movimento rápido em qualquer direção
+            let xAcceleration = motion.userAcceleration.x
+            let yAcceleration = motion.userAcceleration.y
+            
+            // Calcula a magnitude da aceleração
+            let accelerationMagnitude = sqrt(pow(xAcceleration, 2) + pow(yAcceleration, 2))
+            
+            // Verifica se a magnitude da aceleração excede o limiar definido
+            if accelerationMagnitude > strongSelf.gestureThreshold {
+                if !strongSelf.gestureDetected {
+                    DispatchQueue.main.async {
+                        strongSelf.isModelVisible = true
+                        strongSelf.gestureDetected = true
+                        
+                        // Opção para ocultar o modelo automaticamente após um curto período
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                            strongSelf.isModelVisible = false
+                            strongSelf.gestureDetected = false // Reset para permitir novos gestos
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+struct ARViewContainer: UIViewRepresentable {
+    @ObservedObject var viewModel: ModelViewModel
+    var modelNode: SCNNode?
+
+    init(viewModel: ModelViewModel) {
+        self.viewModel = viewModel
+        if let model3D = SCNScene(named: "Patronus.usdz"), let modelScene = model3D.rootNode.childNodes.first {
+            let modelNode = SCNNode()
+            modelNode.addChildNode(modelScene)
+            modelNode.position = SCNVector3(x: 20.0, y: -70.0, z: -70.0) // Ajuste conforme necessário
+            self.modelNode = modelNode
+        }
+    }
+
+    func makeUIView(context: Context) -> ARSCNView {
+        let arView = ARSCNView()
+        let configuration = ARWorldTrackingConfiguration()
+        arView.session.run(configuration)
+        return arView
+    }
+    
+    func updateUIView(_ uiView: ARSCNView, context: Context) {
+        if viewModel.isModelVisible {
+            if let modelNode = modelNode, modelNode.parent == nil {
+                uiView.scene.rootNode.addChildNode(modelNode)
+            }
+        } else {
+            modelNode?.removeFromParentNode()
+        }
+    }
+}
+
