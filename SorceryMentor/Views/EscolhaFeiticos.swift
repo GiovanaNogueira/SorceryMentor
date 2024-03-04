@@ -67,7 +67,7 @@ struct TelaInicialView: View {
     var body: some View {
         ZStack{
         
-        Image("Plano de fundo 1")
+        Image("Fundo")
             .resizable()
             .scaledToFill()
             .ignoresSafeArea()
@@ -83,34 +83,20 @@ struct TelaInicialView: View {
                 .font(.custom("Moshinta", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 16)))
             
             Text("SORCERY")
-                .font(.custom("DejaVuSerif", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 24)))
+                .font(.custom("WizardWorld-Simplified", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 24)))
                 .multilineTextAlignment(.center)
                 .padding(.top, 1)
             
             Text("MENTOR")
-                .font(.custom("DejaVuSerif", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 22)))
+                .font(.custom("WizardWorld-Simplified", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 24)))
                 .multilineTextAlignment(.center)
                 .padding(.bottom, 100)
 
             
-        Button(action: {
-            mudarTelaParaDetalhes()
-        }) {
-            Text("Menu")
-                .font(.custom("DejaVuSerif-Bold", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 18)))
-                .foregroundStyle(.white)
-                .padding(.vertical, 5)
-                .padding(.horizontal, 10)
-                .background(.brown, in: RoundedRectangle(cornerRadius: 8))
-        }
-            
-            Spacer()
-            
-            Image("Ratinho")
-                    .resizable()
-                    .scaledToFit()
-                    .padding(.horizontal, 180)
-            
+        }.onAppear {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                mudarTelaParaDetalhes()
+            }
         }
        }
     }
@@ -135,19 +121,17 @@ struct DetalheView: View {
     
     var body: some View {
         ZStack{
-            Image("Plano de fundo 1")
+            Image("Fundo2")
                 .resizable()
                 .scaledToFill()
                 .ignoresSafeArea()
             
             VStack {
                 HStack{
-                    Text("Feitiços")
+                    Text("ESCOLHA UM\nFEITIÇO")
                         .font(.custom("DejaVuSerif-Bold", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 20)))
-                    
-                    Image(systemName: "wand.and.stars")
-                        .font(.largeTitle)
-                        .foregroundColor(.black)
+                        .multilineTextAlignment(.center)
+
                 }
                 
                 Button(action: {
@@ -155,67 +139,61 @@ struct DetalheView: View {
                     telaAtual = .feitiço1
                 }, label: {
                     HStack {
-                        Image(systemName: "flashlight.off.fill")
-                            .font(.largeTitle)
-                            .foregroundColor(.yellow)
-                            .opacity(fade ? 0.2 : 1.0) // Alterna a opacidade para criar o efeito de fading
-                            .animation(.easeInOut(duration: 1.5).repeatForever(autoreverses: true), value: fade)
-                            .onAppear {
-                                fade = true
-                            }
                         
-                        Text("Lumos")
-                            .font(.custom("DejaVuSerif-Bold", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 14)))
-                            .foregroundColor(.white) // Define a cor do texto
+                        Text("LUMOS")
+                            .font(.custom("DejaVuSerif-Bold", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 20)))
+                            .foregroundColor(.white)
+                            .frame(width:311.6, height: 67)
                     }
                 })
-                .padding()
-                //.background(Color.teal)
                 .cornerRadius(10)
+                .opacity(fade ? 0.4 : 1.0)
+                .animation(.easeInOut(duration: 1.5).repeatForever(autoreverses: true), value: fade)
+                .onAppear {
+                    fade = true
+                }
+                .padding(.bottom, 40)
 
                 Button( action: {
                     indFeitico = 1
                     telaAtual = .feitiço2
                 }, label: {
                     HStack {
-                        Image(systemName: "lightspectrum.horizontal")
-                            .font(.largeTitle)
-                            .foregroundColor(.yellow)
-                            .scaleEffect(pulsate ? 1.15 : 1.0)
-                            .onAppear {withAnimation(.easeInOut(duration: 0.7).repeatForever(autoreverses: true)) {
-                                pulsate.toggle()}}
                         
-                        Text("Expelliarmus")
-                            .font(.custom("DejaVuSerif-Bold", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 14)))
-                            .foregroundColor(.white) // Define a cor do texto
+                        Text("EXPELLIARMUS")
+                            .font(.custom("DejaVuSerif-Bold", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 20)))
+                            .foregroundColor(.white)
+                            .frame(width:311.6, height: 67)
+//                            .background(
+//                                RoundedRectangle(cornerRadius: 10)
+//                                    .fill(Color(red: 197 / 255, green: 172 / 255, blue: 1 / 255))
+//                            )
                     }
                 })
-                //.padding()
                 .cornerRadius(10)
+                .scaleEffect(pulsate ? 1.04 : 1.0)
+                .onAppear {withAnimation(.easeInOut(duration: 0.7).repeatForever(autoreverses: true)) {
+                    pulsate.toggle()}}
+                .padding(.bottom, 40)
                 
                 Button(action:{
                     indFeitico = 2
                     telaAtual = .feitiço3
                 }, label: {
                     HStack {
-                        Image(systemName: "dog.fill")
-                            .font(.largeTitle)
-                            .foregroundColor(.yellow)
-                            .offset(x: move ? 4 : -4, y: 0) // Move horizontalmente 20 pontos para cada lado
-                                        .animation(.easeInOut(duration: 0.5).repeatForever(autoreverses: true), value: move)
-                                        .onAppear {
-                                            move = true
-                                        }
-                        
-                        Text("Expectro Patronum")
-                            .font(.custom("DejaVuSerif-Bold", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 14)))
+                        Text("EXPECTRO\nPATRONUM")
+                            .font(.custom("DejaVuSerif-Bold", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 20)))
                             .foregroundColor(.white)
+                            .frame(width:311.6, height: 67)
                         
                     }
                 })
-                .padding()
-                //.background(Color.teal)
                 .cornerRadius(10)
+                .offset(x: move ? 4 : -4, y: 0)
+                            .animation(.easeInOut(duration: 0.5).repeatForever(autoreverses: true), value: move)
+                            .onAppear {
+                                move = true
+                            }
             }.buttonStyle(EstiloFeiticos())
         }
     }
@@ -260,20 +238,23 @@ struct Feitico1View: View {
             VStack{
                 Spacer()
                 
-                Text("O feitiço Lumos é usado\npara conjurar um feixe de\nluz na ponta da varinha.")
+                Text("""
+                     É um feitiço usado para\nconjurar um feixe de luz\nna ponta da varinha.
+                    Além de iluminar, esse feitiço\n também pode repelir\ninimigos espectrais, como\n espíritos malignos.
+                    """)
                     .multilineTextAlignment(.center)
-                    .font(.custom("DejaVuSerif-Bold", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 12)))
+                    .font(.custom("DejaVuSerif-Bold", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 16)))
                     .foregroundColor(.black)
                     .padding(.horizontal, 50)
                 
-                Button("Continuar", action: mudarParaAudio1)
+                Button("IR PARA TREINO DE VOZ", action: mudarParaAudio1)
                     .padding(.top, 10)
                     .font(.custom("DejaVuSerif-Bold", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 11)))
                     .foregroundColor(.brown)
                 
-                Spacer()
+                //Spacer()
                 
-                Button("Voltar para feitiços", action: mudarTelaParaDetalhes)
+                Button("VOLTAR PARA FEITIÇOS", action: mudarTelaParaDetalhes)
                     .foregroundColor(.brown)
                     .font(.custom("DejaVuSerif-Bold", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 11)))
             }
@@ -290,15 +271,19 @@ struct Feitico2View: View {
 
     var body: some View {
         ZStack{
-            Image("Plano de fundo 1")
+            Image("Fundo2")
                 .resizable()
                 .scaledToFill()
                 .ignoresSafeArea()
             VStack{
-                Text("Descrição do feitiço")
-                Button("Ir para o treino de voz", action: mudarParaAudio2)
+                Text("É um feitiço de desarme. Usado em duelos para fazer o adversário perder sua varinha.")
                 
-                Button("Voltar para feitiços", action: mudarTelaParaDetalhes)
+                Button("IR PARA TREINO DE VOZ", action: mudarParaAudio2)
+                    .padding(.top, 10)
+                    .font(.custom("DejaVuSerif-Bold", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 11)))
+                    .foregroundColor(.brown)
+                
+                Button("VOLTAR PARA FEITIÇOS", action: mudarTelaParaDetalhes)
                     .foregroundColor(.brown)
                     .font(.custom("DejaVuSerif-Bold", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 11)))
             }
@@ -314,16 +299,19 @@ struct Feitico3View: View {
 
     var body: some View {
         ZStack{
-            Image("Plano de fundo 1")
+            Image("Fundo3")
                 .resizable()
                 .scaledToFill()
                 .ignoresSafeArea()
             VStack{
-                Text("Descrição do feitiço")
+                Text("É um feitiço defensivo que conjura um patrono, sendo diferente para cada bruxo. É a única defesa conhecida contra dementadores. ")
                 
-                Button("Ir para o treino de voz", action: mudarParaAudio3)
+                Button("IR PARA TREINO DE VOZ", action: mudarParaAudio3)
+                    .padding(.top, 10)
+                    .font(.custom("DejaVuSerif-Bold", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 11)))
+                    .foregroundColor(.brown)
 
-                Button("Voltar para feitiços", action: mudarTelaParaDetalhes)
+                Button("VOLTAR PARA FEITIÇOS", action: mudarTelaParaDetalhes)
                     .foregroundColor(.brown)
                     .font(.custom("DejaVuSerif-Bold", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 11)))
             }

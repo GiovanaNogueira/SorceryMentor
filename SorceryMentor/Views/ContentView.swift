@@ -48,24 +48,21 @@ struct ContentView: View {
                 Text("Tente novamente").foregroundStyle(.red)
             }
             
-//            HStack{
-//                Text("Palavras que falamos:")
-//                ForEach(speechToText.words, id: \.self) { word in
-//                    Text(word)
-//                }
-//            }
         }
         .padding()
         .onAppear{
             self.speechToText.words = ["expecto"]
             speechToText.mudaFeitico(nomeDoFeiticoNovo: model.feiticos[indFeitico].nome)
         }
-        .onChange(of: speechToText.buscadas, { oldValue, newValue in
-            isCorrect = newValue.isEmpty
+        .onChange(of: speechToText.words, {
+            if speechToText.confere(){
+                speechToText.stopTranscribing()
+                isCorrect = true
+            }
         })
-
-        .onChange(of: speechToText.currentWord) { newCurrentWord in
-            if !isCorrect {
+        
+        .onChange(of: speechToText.currentWord) {newCurrentWord in
+            if !isCorrect{
                 isShowingTryAgain = true
             }
         }
