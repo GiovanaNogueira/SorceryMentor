@@ -44,15 +44,15 @@ class SpeechToText: ObservableObject {
     }
     
     func confere() -> Bool {
-//        print(buscadas.split(separator: " "))
         print("WORDS = \(words)")
         print("BUSCADAS = \(buscadas)")
         var encontrada = false
         words.forEach{ word in
             let treatedWord = word.capitalized
-            if buscadas.contains(treatedWord) {
-                encontrada = true
-//                buscadas = buscadas.filter({$0 != treatedWord})
+            for buscada in buscadas{
+                if buscada.contains(treatedWord) {
+                    encontrada = true
+                }
             }
         }
         print("BUSCADAS AFTER = \(buscadas)")
