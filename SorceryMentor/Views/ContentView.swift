@@ -54,23 +54,30 @@ struct ContentView: View {
 //                    Text(word)
 //                }
 //            }
+           
         }
         .padding()
         .onAppear{
             self.speechToText.words = ["expecto"]
             speechToText.mudaFeitico(nomeDoFeiticoNovo: model.feiticos[indFeitico].nome)
         }
-        .onChange(of: speechToText.buscadas, { oldValue, newValue in
-            isCorrect = newValue.isEmpty
-        })
-
-        .onChange(of: speechToText.currentWord) { newCurrentWord in
-            if !isCorrect {
-                isShowingTryAgain = true
-            }
-        }
-
         
+        .onChange(of: speechToText.buscadas, {
+            if speechToText.confere(){
+                isCorrect = true
+            }
+        })
+        
+//        .onChange(of: speechToText.buscadas, { oldValue, newValue in
+//            isCorrect = newValue.isEmpty
+//        })
+
+//        .onChange(of: speechToText.currentWord) { newCurrentWord in
+//            if !isCorrect {
+//                isShowingTryAgain = true
+//            }
+//        }
+
         .onChange(of: isCorrect) { newValue in
                     if newValue {
                         switch indFeitico {
