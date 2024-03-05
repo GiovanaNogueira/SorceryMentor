@@ -46,11 +46,12 @@ extension View {
 
 struct EstiloFeiticos: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
+        
             configuration.label
             .foregroundStyle(.white)
-            .padding(.vertical, 2)
-            .padding(.horizontal, 10)
-            .background(.brown, in: RoundedRectangle(cornerRadius: 3))
+//            .padding(.vertical, 2)
+//            .padding(.horizontal, 10)
+            .background(Image("Botão").resizable().scaledToFit()/*, in: RoundedRectangle(cornerRadius: 3)*/)
             //.scaleEffect(configuration.isPressed ? 1.1 : 1.0)
             .opacity(configuration.isPressed ? 0.5 : 1.0)
             .multilineTextAlignment(.center)

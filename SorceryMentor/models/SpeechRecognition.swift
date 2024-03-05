@@ -73,7 +73,7 @@ class SpeechToText: ObservableObject {
          task: SFSpeechRecognitionTask? = nil,
          recognizer: SFSpeechRecognizer?) {
         self.language = language
-        self.words = words + ["Expecto"]
+        self.words = words 
         self.currentWord = currentWord
         self.audioEngine = audioEngine
         self.request = request

@@ -9,6 +9,7 @@ import CoreMotion
 import SwiftUI
 import AVFoundation
 import SpriteKit
+import AVKit
 
 
 //Inicio das telas
@@ -59,11 +60,13 @@ struct EscolhaFeiticos: View {
     }
 }
 
+
 struct TelaInicialView: View {
     @Environment(\.sizeCategory) var sizeCategory
     
     var mudarTelaParaDetalhes: () -> Void
 
+    
     var body: some View {
         ZStack{
         
@@ -71,26 +74,30 @@ struct TelaInicialView: View {
             .resizable()
             .scaledToFill()
             .ignoresSafeArea()
-            
         VStack{
                 
-        Image("Logo Hogwarts")
-                .resizable()
-                .scaledToFit()
-                .padding(.horizontal, 180)
         
             Text("Welcome Wizards to")
                 .font(.custom("Moshinta", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 16)))
+                .foregroundColor(.white)
             
-            Text("SORCERY")
+            Text("sorcery")
                 .font(.custom("WizardWorld-Simplified", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 24)))
                 .multilineTextAlignment(.center)
                 .padding(.top, 1)
+                .foregroundColor(.white)
             
-            Text("MENTOR")
+            Text("mentor")
                 .font(.custom("WizardWorld-Simplified", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 24)))
                 .multilineTextAlignment(.center)
-                .padding(.bottom, 100)
+                .padding(.bottom, 50)
+                .foregroundColor(.white)
+            
+            Image("logoHogwarts")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 100)
+//                    .padding(.horizontal, 180)
 
             
         }.onAppear {
@@ -128,31 +135,37 @@ struct DetalheView: View {
             
             VStack {
                 HStack{
-                    Text("ESCOLHA UM\nFEITIÇO")
-                        .font(.custom("DejaVuSerif-Bold", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 20)))
+                    Text("escolha UM\nfeitiço")
+                        .font(.custom("WizardWorld-Simplified", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 20)))
                         .multilineTextAlignment(.center)
+                        .foregroundColor(.white)
 
                 }
-                
+                .padding(.bottom, 50)
                 Button(action: {
                     indFeitico = 0
                     telaAtual = .feitiço1
                 }, label: {
                     HStack {
                         
-                        Text("LUMOS")
-                            .font(.custom("DejaVuSerif-Bold", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 20)))
+                        Text("lumos")
+                            .font(.custom("WizardWorld-Simplified", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 20)))
                             .foregroundColor(.white)
                             .frame(width:311.6, height: 67)
                     }
                 })
                 .cornerRadius(10)
-                .opacity(fade ? 0.4 : 1.0)
-                .animation(.easeInOut(duration: 1.5).repeatForever(autoreverses: true), value: fade)
-                .onAppear {
-                    fade = true
-                }
+//                .opacity(fade ? 0.4 : 1.0)
+//                .animation(.easeInOut(duration: 1.5).repeatForever(autoreverses: true), value: fade)
+//                .onAppear {
+//                    fade = true
+//                }
                 .padding(.bottom, 40)
+                .offset(x: 0 , y: move ? 2 : -2)
+                            .animation(.easeInOut(duration: 0.5).repeatForever(autoreverses: true), value: move)
+                            .onAppear {
+                                move = true
+                            }
 
                 Button( action: {
                     indFeitico = 1
@@ -160,8 +173,8 @@ struct DetalheView: View {
                 }, label: {
                     HStack {
                         
-                        Text("EXPELLIARMUS")
-                            .font(.custom("DejaVuSerif-Bold", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 20)))
+                        Text("expelliarmus")
+                            .font(.custom("WizardWorld-Simplified", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 20)))
                             .foregroundColor(.white)
                             .frame(width:311.6, height: 67)
 //                            .background(
@@ -171,30 +184,37 @@ struct DetalheView: View {
                     }
                 })
                 .cornerRadius(10)
-                .scaleEffect(pulsate ? 1.04 : 1.0)
-                .onAppear {withAnimation(.easeInOut(duration: 0.7).repeatForever(autoreverses: true)) {
-                    pulsate.toggle()}}
+//                .scaleEffect(pulsate ? 1.04 : 1.0)
+//                .onAppear {withAnimation(.easeInOut(duration: 0.7).repeatForever(autoreverses: true)) {
+//                    pulsate.toggle()}}
                 .padding(.bottom, 40)
+                .offset(x: 0 , y: move ? 2 : -2)
+                            .animation(.easeInOut(duration: 0.5).repeatForever(autoreverses: true), value: move)
+                            .onAppear {
+                                move = true
+                            }
                 
                 Button(action:{
                     indFeitico = 2
                     telaAtual = .feitiço3
                 }, label: {
                     HStack {
-                        Text("EXPECTRO\nPATRONUM")
-                            .font(.custom("DejaVuSerif-Bold", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 20)))
+                        Text("expectro\npatronum")
+                            .font(.custom("WizardWorld-Simplified", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 20)))
                             .foregroundColor(.white)
                             .frame(width:311.6, height: 67)
                         
                     }
                 })
                 .cornerRadius(10)
-                .offset(x: move ? 4 : -4, y: 0)
+                .offset(x: 0 , y: move ? 2 : -2)
                             .animation(.easeInOut(duration: 0.5).repeatForever(autoreverses: true), value: move)
                             .onAppear {
                                 move = true
                             }
+                Image("logoHogwarts")
             }.buttonStyle(EstiloFeiticos())
+            
         }
     }
 }
@@ -209,34 +229,14 @@ struct Feitico1View: View {
     var mudarParaAudio1: () -> Void
     var mudarTelaParaDetalhes: () -> Void
     
-    let images = ["imagem1", "imagem2", "imagem3"]
-    
     var body: some View {
         
         ZStack{
-            Image(images[currentIndex])
-                        .resizable()
-                        .scaledToFill()
-                        .ignoresSafeArea()
-                        .opacity(opacity)
-                        .onAppear {
-                            Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { _ in
-                                withAnimation(.easeInOut(duration: 1.5)) {
-                                    // Anima a redução da opacidade para 0
-                                    self.opacity = 0.5
-                                }
-                                // Após a animação de fade out, atualiza a imagem e restaura a opacidade
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                                    currentIndex = (currentIndex + 1) % images.count
-                                    withAnimation(.easeInOut(duration: 2.0)) {
-                                        // Anima o retorno da opacidade para 1
-                                        self.opacity = 1.0
-                                    }
-                                }
-                            }
-                        }
+            Image("Fundo2")
+                .resizable()
+                .scaledToFill()
+                .ignoresSafeArea()
             VStack{
-                Spacer()
                 
                 Text("""
                      É um feitiço usado para\nconjurar um feixe de luz\nna ponta da varinha.
@@ -244,18 +244,23 @@ struct Feitico1View: View {
                     """)
                     .multilineTextAlignment(.center)
                     .font(.custom("DejaVuSerif-Bold", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 16)))
-                    .foregroundColor(.black)
-                    .padding(.horizontal, 50)
+                    .padding(.horizontal, 10)
+                    .padding(.bottom, 60)
+                    .foregroundColor(.white)
                 
-                Button("IR PARA TREINO DE VOZ", action: mudarParaAudio1)
-                    .padding(.top, 10)
-                    .font(.custom("DejaVuSerif-Bold", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 11)))
-                    .foregroundColor(.brown)
-                
-                //Spacer()
+                Button(action: mudarParaAudio1, label: {
+                    Text("IR PARA TREINO DE VOZ")
+                        .padding(.horizontal, 20)
+                        .padding(.vertical, 15)
+                })
+                .padding(10)
+                .font(.custom("DejaVuSerif-Bold", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 11)))
+                .foregroundColor(.white)
+                .buttonStyle(EstiloFeiticos())
+  
                 
                 Button("VOLTAR PARA FEITIÇOS", action: mudarTelaParaDetalhes)
-                    .foregroundColor(.brown)
+                    .foregroundColor(.white)
                     .font(.custom("DejaVuSerif-Bold", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 11)))
             }
         }
@@ -277,11 +282,21 @@ struct Feitico2View: View {
                 .ignoresSafeArea()
             VStack{
                 Text("É um feitiço de desarme. Usado em duelos para fazer o adversário perder sua varinha.")
+                    .multilineTextAlignment(.center)
+                    .font(.custom("DejaVuSerif-Bold", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 16)))
+                    .foregroundColor(.white)
+                    .padding(.horizontal, 10)
+                    .padding(.bottom, 60)
                 
-                Button("IR PARA TREINO DE VOZ", action: mudarParaAudio2)
-                    .padding(.top, 10)
-                    .font(.custom("DejaVuSerif-Bold", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 11)))
-                    .foregroundColor(.brown)
+                Button(action: mudarParaAudio2, label: {
+                    Text("IR PARA TREINO DE VOZ")
+                        .padding(.horizontal, 20)
+                        .padding(.vertical, 15)
+                })
+                .padding(10)
+                .font(.custom("DejaVuSerif-Bold", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 11)))
+                .foregroundColor(.white)
+                .buttonStyle(EstiloFeiticos())
                 
                 Button("VOLTAR PARA FEITIÇOS", action: mudarTelaParaDetalhes)
                     .foregroundColor(.brown)
@@ -299,18 +314,28 @@ struct Feitico3View: View {
 
     var body: some View {
         ZStack{
-            Image("Fundo3")
+            Image("Fundo2")
                 .resizable()
                 .scaledToFill()
                 .ignoresSafeArea()
             VStack{
                 Text("É um feitiço defensivo que conjura um patrono, sendo diferente para cada bruxo. É a única defesa conhecida contra dementadores. ")
+                    .multilineTextAlignment(.center)
+                    .font(.custom("DejaVuSerif-Bold", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 16)))
+                    .foregroundColor(.white)
+                    .padding(.horizontal, 10)
+                    .padding(.bottom, 60)
                 
-                Button("IR PARA TREINO DE VOZ", action: mudarParaAudio3)
-                    .padding(.top, 10)
-                    .font(.custom("DejaVuSerif-Bold", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 11)))
-                    .foregroundColor(.brown)
-
+                Button(action: mudarParaAudio3, label: {
+                    Text("IR PARA TREINO DE VOZ")
+                        .padding(.horizontal, 20)
+                        .padding(.vertical, 15)
+                })
+                .padding(10)
+                .font(.custom("DejaVuSerif-Bold", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 11)))
+                .foregroundColor(.white)
+                .buttonStyle(EstiloFeiticos())
+                
                 Button("VOLTAR PARA FEITIÇOS", action: mudarTelaParaDetalhes)
                     .foregroundColor(.brown)
                     .font(.custom("DejaVuSerif-Bold", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 11)))
@@ -324,15 +349,47 @@ struct TreinoMovimento1View: View{
     @ObservedObject var motionDetector = MotionDetectorLumos()
     var mudarTelaParaDetalhes: () -> Void
     var mudarTelaParaMovimento1: () -> Void
+//    let player = AVPlayer(url: Bundle.main.url(forResource: "video", withExtension: "mp4")!)
     
     var body: some View{
-        Text ("Treino do movimento 1")
-        
-        Button("Ir para movimento 1", action: mudarTelaParaMovimento1)
-        
-        Button("Voltar para feitiços", action: mudarTelaParaDetalhes)
-            .foregroundColor(.brown)
-            .font(.custom("DejaVuSerif-Bold", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 11)))
+        ZStack{
+            Image("Fundo2")
+                .resizable()
+                .scaledToFill()
+                .ignoresSafeArea()
+//            VideoPlayer(player: player)
+            
+            Text("repita o movimento")
+                .multilineTextAlignment(.center)
+                .font(.custom("WizardWorld-Simplified", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 16)))
+                .foregroundColor(.white)
+                .padding(.horizontal, 10)
+                .padding(.bottom, 60)
+            
+            Button(action: mudarTelaParaMovimento1, label: {
+                Text("Começar")
+                    .padding(.horizontal, 20)
+                    .padding(.vertical, 15)
+            })
+            .padding(10)
+            .font(.custom("WizardWorld-Simplified", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 11)))
+            .foregroundColor(.white)
+            .buttonStyle(EstiloFeiticos())
+            
+//            Button("Voltar para feitiços", action: mudarTelaParaDetalhes)
+//                .foregroundColor(.brown)
+//                .font(.custom("DejaVuSerif-Bold", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 11)))
+            
+            Button ( action:
+                mudarTelaParaDetalhes
+            , label: {
+                Label("Voltar", systemImage: "chevron.backward")
+                    .bold()
+            })
+            .tint(.white)
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+            .padding()
+        }
     }
 }
 
@@ -341,15 +398,47 @@ struct TreinoMovimento2View: View{
     @StateObject private var motionDetector = MotionDetectorExpelliarmus()
     var mudarTelaParaDetalhes: () -> Void
     var mudarTelaParaMovimento2: () -> Void
+//    let player = AVPlayer(url: Bundle.main.url(forResource: "video", withExtension: "mp4")!)
     
     var body: some View{
-        Text ("Treino do movimento 2")
-       
-        Button("Ir para movimento 2", action: mudarTelaParaMovimento2)
-       
-        Button("Voltar para feitiços", action: mudarTelaParaDetalhes)
-            .foregroundColor(.brown)
-            .font(.custom("DejaVuSerif-Bold", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 11)))
+        ZStack{
+            Image("Fundo2")
+                .resizable()
+                .scaledToFill()
+                .ignoresSafeArea()
+//            VideoPlayer(player: player)
+            
+            Text("repita o movimento")
+                .multilineTextAlignment(.center)
+                .font(.custom("WizardWorld-Simplified", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 16)))
+                .foregroundColor(.white)
+                .padding(.horizontal, 10)
+                .padding(.bottom, 60)
+            
+            Button(action: mudarTelaParaMovimento2, label: {
+                Text("Começar")
+                    .padding(.horizontal, 20)
+                    .padding(.vertical, 15)
+            })
+            .padding(10)
+            .font(.custom("WizardWorld-Simplified", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 11)))
+            .foregroundColor(.white)
+            .buttonStyle(EstiloFeiticos())
+            
+//            Button("Voltar para feitiços", action: mudarTelaParaDetalhes)
+//                .foregroundColor(.brown)
+//                .font(.custom("DejaVuSerif-Bold", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 11)))
+            
+            Button ( action:
+                mudarTelaParaDetalhes
+            , label: {
+                Label("Voltar", systemImage: "chevron.backward")
+                    .bold()
+            })
+            .tint(.white)
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+            .padding()
+        }
     }
 }
 
@@ -357,15 +446,47 @@ struct TreinoMovimento3View: View{
     @Environment(\.sizeCategory) var sizeCategory
     var mudarTelaParaDetalhes: () -> Void
     var mudarTelaParaMovimento3: () -> Void
+    let player = AVPlayer(url: Bundle.main.url(forResource: "video", withExtension: "mp4")!)
     
     var body: some View{
-        Text ("Treino do movimento 3")
-       
-        Button("Ir para movimento 3", action: mudarTelaParaMovimento3)
-        
-        Button("Voltar para feitiços", action: mudarTelaParaDetalhes)
-            .foregroundColor(.brown)
-            .font(.custom("DejaVuSerif-Bold", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 11)))
+        ZStack{
+            Image("Fundo2")
+                .resizable()
+                .scaledToFill()
+                .ignoresSafeArea()
+//            VideoPlayer(player: player)
+            
+            Text("repita o movimento")
+                .multilineTextAlignment(.center)
+                .font(.custom("WizardWorld-Simplified", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 16)))
+                .foregroundColor(.white)
+                .padding(.horizontal, 10)
+                .padding(.bottom, 60)
+            
+            Button(action: mudarTelaParaMovimento3, label: {
+                Text("Começar")
+                    .padding(.horizontal, 20)
+                    .padding(.vertical, 15)
+            })
+            .padding(10)
+            .font(.custom("WizardWorld-Simplified", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 11)))
+            .foregroundColor(.white)
+            .buttonStyle(EstiloFeiticos())
+            
+//            Button("Voltar para feitiços", action: mudarTelaParaDetalhes)
+//                .foregroundColor(.brown)
+//                .font(.custom("DejaVuSerif-Bold", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 11)))
+            
+            Button ( action:
+                mudarTelaParaDetalhes
+            , label: {
+                Label("Voltar", systemImage: "chevron.backward")
+                    .bold()
+            })
+            .tint(.white)
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+            .padding()
+        }
     }
 }
 
@@ -374,13 +495,26 @@ struct Movimento1View: View{
     @Environment(\.sizeCategory) var sizeCategory
     @ObservedObject var motionDetector = MotionDetectorLumos()
     var mudarTelaParaDetalhes: () -> Void
+//    let player = AVPlayer(url: Bundle.main.url(forResource: "video", withExtension: "mp4")!)
     
     var body: some View{
-    Text ("Mexa o celular em movimento circular")
-        
-        Button("Voltar para feitiços", action: mudarTelaParaDetalhes)
-            .foregroundColor(.brown)
-            .font(.custom("DejaVuSerif-Bold", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 11)))
+        ZStack{
+            Image("Fundo2")
+                .resizable()
+                .scaledToFill()
+                .ignoresSafeArea()
+            Text ("Mexa o celular em movimento circular")
+            
+            Button ( action:
+                mudarTelaParaDetalhes
+            , label: {
+                Label("Voltar", systemImage: "chevron.backward")
+                    .bold()
+            })
+            .tint(.white)
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+            .padding()
+        }
     }
 }
 
@@ -395,12 +529,24 @@ struct Movimento2View: View{
     var mudarTelaParaDetalhes: () -> Void
     
     var body: some View{
-        VStack {
-            Text ("Movimento 2")
-            
-            Button("Voltar para feitiços", action: mudarTelaParaDetalhes)
-                .foregroundColor(.brown)
-                .font(.custom("DejaVuSerif-Bold", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 11)))
+        ZStack{
+            Image("Fundo2")
+                .resizable()
+                .scaledToFill()
+                .ignoresSafeArea()
+            VStack {
+                Text ("Movimento 2")
+                
+                Button ( action:
+                    mudarTelaParaDetalhes
+                , label: {
+                    Label("Voltar", systemImage: "chevron.backward")
+                        .bold()
+                })
+                .tint(.white)
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+                .padding()
+            }
         }
         .onChange(of: motionDetector.movementDetected) { oldValue, newValue in
             if newValue{
@@ -421,13 +567,25 @@ struct Movimento3View: View{
     var mudarTelaParaDetalhes: () -> Void
     
     var body: some View{
-    Text ("Movimento 3")
-        
-        ARViewContainer(viewModel: viewModel)
-        
-        Button("Voltar para feitiços", action: mudarTelaParaDetalhes)
-            .foregroundColor(.brown)
-            .font(.custom("DejaVuSerif-Bold", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 11)))
+        ZStack{
+            Image("Fundo2")
+                .resizable()
+                .scaledToFill()
+                .ignoresSafeArea()
+            Text ("Movimento 3")
+            
+            ARViewContainer(viewModel: viewModel)
+            
+            Button ( action:
+                mudarTelaParaDetalhes
+            , label: {
+                Label("Voltar", systemImage: "chevron.backward")
+                    .bold()
+            })
+            .tint(.white)
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+            .padding()
+        }
     }
 }
 
