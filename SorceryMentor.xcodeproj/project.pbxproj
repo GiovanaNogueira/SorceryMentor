@@ -12,6 +12,11 @@
 		BBF45E062B9250B000760387 /* DejaVuSerif.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BBF45E032B92508500760387 /* DejaVuSerif.ttf */; };
 		BBF45E072B9250B600760387 /* DejaVuSerif-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BBF45E042B92508E00760387 /* DejaVuSerif-Bold.ttf */; };
 		BBF45E7C2B96523600760387 /* WizardWorldSimplified.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BBF45E7B2B96523600760387 /* WizardWorldSimplified.ttf */; };
+		F9159ACE2B98D144009C9E38 /* VideoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9159ACD2B98D144009C9E38 /* VideoController.swift */; };
+		F9159AD02B98D185009C9E38 /* testeVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9159ACF2B98D185009C9E38 /* testeVideo.swift */; };
+		F9159AD12B98D3BA009C9E38 /* IMG_0036.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F9159ACA2B98AA2C009C9E38 /* IMG_0036.mp4 */; };
+		F9159AD22B98D3E0009C9E38 /* IMG_0037.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F9159ACB2B98AA2C009C9E38 /* IMG_0037.mp4 */; };
+		F9159AD32B98D3E2009C9E38 /* IMG_0038.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F9159ACC2B98AA2C009C9E38 /* IMG_0038.mp4 */; };
 		F9608CC32B8CE25400C7126E /* SorceryMentorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9608CC22B8CE25400C7126E /* SorceryMentorApp.swift */; };
 		F9608CC52B8CE25400C7126E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9608CC42B8CE25400C7126E /* ContentView.swift */; };
 		F9608CC72B8CE25800C7126E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9608CC62B8CE25800C7126E /* Assets.xcassets */; };
@@ -49,6 +54,11 @@
 		BBF45E032B92508500760387 /* DejaVuSerif.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = DejaVuSerif.ttf; sourceTree = "<group>"; };
 		BBF45E042B92508E00760387 /* DejaVuSerif-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DejaVuSerif-Bold.ttf"; sourceTree = "<group>"; };
 		BBF45E7B2B96523600760387 /* WizardWorldSimplified.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = WizardWorldSimplified.ttf; sourceTree = "<group>"; };
+		F9159ACA2B98AA2C009C9E38 /* IMG_0036.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = IMG_0036.mp4; path = ../../../../Downloads/IMG_0036.mp4; sourceTree = "<group>"; };
+		F9159ACB2B98AA2C009C9E38 /* IMG_0037.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = IMG_0037.mp4; path = ../../../../Downloads/IMG_0037.mp4; sourceTree = "<group>"; };
+		F9159ACC2B98AA2C009C9E38 /* IMG_0038.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = IMG_0038.mp4; path = ../../../../Downloads/IMG_0038.mp4; sourceTree = "<group>"; };
+		F9159ACD2B98D144009C9E38 /* VideoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoController.swift; sourceTree = "<group>"; };
+		F9159ACF2B98D185009C9E38 /* testeVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testeVideo.swift; sourceTree = "<group>"; };
 		F9608CBF2B8CE25400C7126E /* SorceryMentor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SorceryMentor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9608CC22B8CE25400C7126E /* SorceryMentorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SorceryMentorApp.swift; sourceTree = "<group>"; };
 		F9608CC42B8CE25400C7126E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -117,6 +127,9 @@
 				F9B1CFFD2B8FD65C00AE67D9 /* Views */,
 				F9B1CFFA2B8F9BCF00AE67D9 /* models */,
 				F9608CC62B8CE25800C7126E /* Assets.xcassets */,
+				F9159ACA2B98AA2C009C9E38 /* IMG_0036.mp4 */,
+				F9159ACB2B98AA2C009C9E38 /* IMG_0037.mp4 */,
+				F9159ACC2B98AA2C009C9E38 /* IMG_0038.mp4 */,
 				BBF45E7B2B96523600760387 /* WizardWorldSimplified.ttf */,
 				BBF45E022B92506000760387 /* Moshinta.ttf */,
 				BBF45E032B92508500760387 /* DejaVuSerif.ttf */,
@@ -159,6 +172,7 @@
 				F9B1D0002B90EE3D00AE67D9 /* FunçõesMovimentos.swift */,
 				F9B1D0022B90EE6300AE67D9 /* Visuais.swift */,
 				BBF45DFF2B9248F000760387 /* Patronus.usdz */,
+				F9159ACD2B98D144009C9E38 /* VideoController.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -169,6 +183,7 @@
 				F9608CC42B8CE25400C7126E /* ContentView.swift */,
 				F9608CC22B8CE25400C7126E /* SorceryMentorApp.swift */,
 				F9B1CFFE2B8FD69300AE67D9 /* EscolhaFeiticos.swift */,
+				F9159ACF2B98D185009C9E38 /* testeVideo.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -277,12 +292,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9159AD12B98D3BA009C9E38 /* IMG_0036.mp4 in Resources */,
 				BBF45E062B9250B000760387 /* DejaVuSerif.ttf in Resources */,
 				F9608CCA2B8CE25800C7126E /* Preview Assets.xcassets in Resources */,
 				BBF45E7C2B96523600760387 /* WizardWorldSimplified.ttf in Resources */,
 				BBF45E072B9250B600760387 /* DejaVuSerif-Bold.ttf in Resources */,
 				BBF45E002B9248F000760387 /* Patronus.usdz in Resources */,
 				F9608CC72B8CE25800C7126E /* Assets.xcassets in Resources */,
+				F9159AD22B98D3E0009C9E38 /* IMG_0037.mp4 in Resources */,
+				F9159AD32B98D3E2009C9E38 /* IMG_0038.mp4 in Resources */,
 				BBF45E052B9250AC00760387 /* Moshinta.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -311,6 +329,8 @@
 				F9B1CFFC2B8F9BE100AE67D9 /* DAO.swift in Sources */,
 				F9B1CFFF2B8FD69300AE67D9 /* EscolhaFeiticos.swift in Sources */,
 				F9608CC52B8CE25400C7126E /* ContentView.swift in Sources */,
+				F9159ACE2B98D144009C9E38 /* VideoController.swift in Sources */,
+				F9159AD02B98D185009C9E38 /* testeVideo.swift in Sources */,
 				F9B1D0032B90EE6300AE67D9 /* Visuais.swift in Sources */,
 				F9608CEF2B8CE2F500C7126E /* SpeechRecognition.swift in Sources */,
 				F9B1D0012B90EE3D00AE67D9 /* FunçõesMovimentos.swift in Sources */,
@@ -511,6 +531,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SorceryMentor/Preview Content\"";
@@ -534,8 +555,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Giovana.SorceryMentor;
+				PRODUCT_BUNDLE_IDENTIFIER = G.SorceyMentor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
