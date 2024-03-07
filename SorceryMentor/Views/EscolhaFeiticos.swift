@@ -144,7 +144,7 @@ struct DetalheView: View {
                 .padding(.bottom, 70)
                 Button(action: {
                     indFeitico = 0
-                    telaAtual = .treinomovimento1
+                    telaAtual = .feitiço1
                 }, label: {
                     HStack {
                         
