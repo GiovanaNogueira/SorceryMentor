@@ -276,10 +276,16 @@ struct Feitico2View: View {
 
     var body: some View {
         ZStack{
-            Image("Fundo2")
-                .resizable()
-                .scaledToFill()
-                .ignoresSafeArea()
+            Button ( action:
+                mudarTelaParaDetalhes
+            , label: {
+                Label("Voltar", systemImage: "chevron.backward")
+                    .bold()
+            })
+            .tint(.white)
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+            .padding()
+            .font(.custom("DejaVuSerif-Bold", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 11)))
             VStack{
                 Text("expelliarmus").font(.custom("WizardWorld-Simplified", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 30)))
                     .foregroundColor(.white)
@@ -287,9 +293,9 @@ struct Feitico2View: View {
                 
                 Text("É um feitiço de desarme. Usado em duelos para fazer o adversário perder sua varinha.")
                     .multilineTextAlignment(.center)
-                    .font(.custom("DejaVuSerif-Bold", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 16)))
+                    .font(.custom("DejaVuSerif", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 18)))
                     .foregroundColor(.white)
-                    .padding(.horizontal, 35)
+                    .padding(.horizontal, 45)
                     .padding(.bottom, 60)
                 
                 Button(action: mudarParaAudio2, label: {
@@ -301,12 +307,14 @@ struct Feitico2View: View {
                 .font(.custom("DejaVuSerif-Bold", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 11)))
                 .foregroundColor(.white)
                 .buttonStyle(EstiloFeiticos())
-                
-                Button("VOLTAR PARA FEITIÇOS", action: mudarTelaParaDetalhes)
-                    .foregroundColor(.brown)
-                    .font(.custom("DejaVuSerif-Bold", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 11)))
-                    .padding(.bottom, 50)
             }
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background {
+            Image("Fundo2")
+                .resizable()
+                .scaledToFill()
+                .ignoresSafeArea()
         }
     }
 }
@@ -319,10 +327,16 @@ struct Feitico3View: View {
 
     var body: some View {
         ZStack{
-            Image("Fundo2")
-                .resizable()
-                .scaledToFill()
-                .ignoresSafeArea()
+            Button ( action:
+                mudarTelaParaDetalhes
+            , label: {
+                Label("Voltar", systemImage: "chevron.backward")
+                    .bold()
+            })
+            .tint(.white)
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+            .padding()
+            .font(.custom("DejaVuSerif-Bold", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 11)))
             VStack{
                 Text("expecto patronum").font(.custom("WizardWorld-Simplified", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 30)))
                     .multilineTextAlignment(.center)
@@ -331,9 +345,9 @@ struct Feitico3View: View {
                 
                 Text("É um feitiço defensivo que conjura um patrono, sendo diferente para cada bruxo. É a única defesa conhecida contra dementadores. ")
                     .multilineTextAlignment(.center)
-                    .font(.custom("DejaVuSerif-Bold", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 16)))
+                    .font(.custom("DejaVuSerif", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 18)))
                     .foregroundColor(.white)
-                    .padding(.horizontal, 10)
+                    .padding(.horizontal, 45)
                     .padding(.bottom, 60)
                 
                 Button(action: mudarParaAudio3, label: {
@@ -345,12 +359,15 @@ struct Feitico3View: View {
                 .font(.custom("DejaVuSerif-Bold", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 11)))
                 .foregroundColor(.white)
                 .buttonStyle(EstiloFeiticos())
-                
-                Button("VOLTAR PARA FEITIÇOS", action: mudarTelaParaDetalhes)
-                    .foregroundColor(.brown)
-                    .font(.custom("DejaVuSerif-Bold", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 11)))
-                    .padding(.bottom, 50)
+            
             }
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background {
+            Image("Fundo2")
+                .resizable()
+                .scaledToFill()
+                .ignoresSafeArea()
         }
     }
 }

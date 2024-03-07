@@ -2,7 +2,6 @@
 import SwiftUI
 
 struct ContentView: View {
-//    var frase: String = "lumos"
     @Binding var indFeitico:Int
     @Binding var telaAtual: Tela
     @State private var count: Int = 0
@@ -31,7 +30,6 @@ struct ContentView: View {
                     .font(.custom("DejaVuSerif-Bold", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 16)))
                     .foregroundColor(.white)
                     .padding(.horizontal, 10)
-//                    .padding(.bottom, 100)
                 
                 Spacer()
                 
@@ -58,19 +56,12 @@ struct ContentView: View {
                 
                 if isShowingTryAgain{
                     Text("Tente novamente").foregroundStyle(.white)
+                        .padding(.bottom, 200)
                 }
-                
-                //            HStack{
-                //                Text("Palavras que falamos:")
-                //                ForEach(speechToText.words, id: \.self) { word in
-                //                    Text(word)
-                //                }
-                //            }
                 
             }
             .padding()
             .onAppear{
-//                self.speechToText.words = ["expecto"]
                 speechToText.mudaFeitico(nomeDoFeiticoNovo: model.feiticos[indFeitico].nome)
             }
             .onChange(of: speechToText.words, {
@@ -119,9 +110,3 @@ struct ContentView: View {
         }
     }
 }
-
-
-//
-//#Preview {
-//    ContentView(indFeitico: .constant(0), telaAtual: .constant(.audio), speechToText: <#SpeechToText#>)
-//}

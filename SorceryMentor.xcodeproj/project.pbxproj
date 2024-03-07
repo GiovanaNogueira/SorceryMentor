@@ -15,8 +15,6 @@
 		BBF45E062B9250B000760387 /* DejaVuSerif.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BBF45E032B92508500760387 /* DejaVuSerif.ttf */; };
 		BBF45E072B9250B600760387 /* DejaVuSerif-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BBF45E042B92508E00760387 /* DejaVuSerif-Bold.ttf */; };
 		BBF45E7C2B96523600760387 /* WizardWorldSimplified.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BBF45E7B2B96523600760387 /* WizardWorldSimplified.ttf */; };
-		F9159ACE2B98D144009C9E38 /* VideoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9159ACD2B98D144009C9E38 /* VideoController.swift */; };
-		F9159AD02B98D185009C9E38 /* testeVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9159ACF2B98D185009C9E38 /* testeVideo.swift */; };
 		F9608CC32B8CE25400C7126E /* SorceryMentorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9608CC22B8CE25400C7126E /* SorceryMentorApp.swift */; };
 		F9608CC52B8CE25400C7126E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9608CC42B8CE25400C7126E /* ContentView.swift */; };
 		F9608CC72B8CE25800C7126E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9608CC62B8CE25800C7126E /* Assets.xcassets */; };
@@ -57,8 +55,6 @@
 		BBF45E032B92508500760387 /* DejaVuSerif.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = DejaVuSerif.ttf; sourceTree = "<group>"; };
 		BBF45E042B92508E00760387 /* DejaVuSerif-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DejaVuSerif-Bold.ttf"; sourceTree = "<group>"; };
 		BBF45E7B2B96523600760387 /* WizardWorldSimplified.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = WizardWorldSimplified.ttf; sourceTree = "<group>"; };
-		F9159ACD2B98D144009C9E38 /* VideoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoController.swift; sourceTree = "<group>"; };
-		F9159ACF2B98D185009C9E38 /* testeVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testeVideo.swift; sourceTree = "<group>"; };
 		F9608CBF2B8CE25400C7126E /* SorceryMentor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SorceryMentor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9608CC22B8CE25400C7126E /* SorceryMentorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SorceryMentorApp.swift; sourceTree = "<group>"; };
 		F9608CC42B8CE25400C7126E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -172,7 +168,6 @@
 				F9B1D0002B90EE3D00AE67D9 /* FunçõesMovimentos.swift */,
 				F9B1D0022B90EE6300AE67D9 /* Visuais.swift */,
 				BBF45DFF2B9248F000760387 /* Patronus.usdz */,
-				F9159ACD2B98D144009C9E38 /* VideoController.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -183,7 +178,6 @@
 				F9608CC42B8CE25400C7126E /* ContentView.swift */,
 				F9608CC22B8CE25400C7126E /* SorceryMentorApp.swift */,
 				F9B1CFFE2B8FD69300AE67D9 /* EscolhaFeiticos.swift */,
-				F9159ACF2B98D185009C9E38 /* testeVideo.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -329,8 +323,6 @@
 				F9B1CFFC2B8F9BE100AE67D9 /* DAO.swift in Sources */,
 				F9B1CFFF2B8FD69300AE67D9 /* EscolhaFeiticos.swift in Sources */,
 				F9608CC52B8CE25400C7126E /* ContentView.swift in Sources */,
-				F9159ACE2B98D144009C9E38 /* VideoController.swift in Sources */,
-				F9159AD02B98D185009C9E38 /* testeVideo.swift in Sources */,
 				F9B1D0032B90EE6300AE67D9 /* Visuais.swift in Sources */,
 				F9608CEF2B8CE2F500C7126E /* SpeechRecognition.swift in Sources */,
 				F9B1D0012B90EE3D00AE67D9 /* FunçõesMovimentos.swift in Sources */,
