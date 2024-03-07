@@ -135,13 +135,13 @@ struct DetalheView: View {
             
             VStack {
                 HStack{
-                    Text("escolha UM\nfeitiço")
-                        .font(.custom("WizardWorld-Simplified", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 30)))
+                    Text("feitiços")
+                        .font(.custom("WizardWorld-Simplified", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 32)))
                         .multilineTextAlignment(.center)
                         .foregroundColor(.white)
 
                 }
-                .padding(.bottom, 70)
+                .padding(.bottom, 40)
                 Button(action: {
                     indFeitico = 0
                     telaAtual = .feitiço1
@@ -155,11 +155,6 @@ struct DetalheView: View {
                     }
                 })
                 .cornerRadius(10)
-//                .opacity(fade ? 0.4 : 1.0)
-//                .animation(.easeInOut(duration: 1.5).repeatForever(autoreverses: true), value: fade)
-//                .onAppear {
-//                    fade = true
-//                }
                 .padding(.bottom, 40)
                 .offset(x: 0 , y: move ? 2 : -2)
                             .animation(.easeInOut(duration: 0.5).repeatForever(autoreverses: true), value: move)
@@ -177,16 +172,9 @@ struct DetalheView: View {
                             .font(.custom("WizardWorld-Simplified", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 20)))
                             .foregroundColor(.white)
                             .frame(width:311.6, height: 67)
-//                            .background(
-//                                RoundedRectangle(cornerRadius: 10)
-//                                    .fill(Color(red: 197 / 255, green: 172 / 255, blue: 1 / 255))
-//                            )
                     }
                 })
                 .cornerRadius(10)
-//                .scaleEffect(pulsate ? 1.04 : 1.0)
-//                .onAppear {withAnimation(.easeInOut(duration: 0.7).repeatForever(autoreverses: true)) {
-//                    pulsate.toggle()}}
                 .padding(.bottom, 40)
                 .offset(x: 0 , y: move ? 2 : -2)
                             .animation(.easeInOut(duration: 0.5).repeatForever(autoreverses: true), value: move)
@@ -200,7 +188,7 @@ struct DetalheView: View {
                 }, label: {
                     HStack {
                         Text("expectro\npatronum")
-                            .font(.custom("WizardWorld-Simplified", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 20)))
+                            .font(.custom("WizardWorld-Simplified", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 18)))
                             .foregroundColor(.white)
                             .frame(width:311.6, height: 67)
                         
@@ -220,9 +208,7 @@ struct DetalheView: View {
 }
 
 struct Feitico1View: View {
-    // Estado para controlar a imagem atual
     @State private var currentIndex = 0
-    // Estado para controlar a opacidade durante a transição
     @State private var opacity = 1.0
     @Environment(\.sizeCategory) var sizeCategory
    
@@ -233,23 +219,28 @@ struct Feitico1View: View {
     var body: some View {
         
         ZStack{
-//            Image("Fundo2")
-//                .resizable()
-//                .scaledToFill()
-//                .ignoresSafeArea()
+            Button ( action:
+                mudarTelaParaDetalhes
+            , label: {
+                Label("Voltar", systemImage: "chevron.backward")
+                    .bold()
+            })
+            .tint(.white)
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+            .padding()
+            .font(.custom("DejaVuSerif-Bold", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 11)))
             VStack{
     
                 Text("lumos").font(.custom("WizardWorld-Simplified", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 30)))
                     .foregroundColor(.white)
                     .padding(.bottom, 50)
-//                    .frame(width:311.6, height: 67)
                 
                 Text("""
                      É um feitiço usado para conjurar um feixe de luz na ponta da varinha. Além de iluminar, esse feitiço também pode repelir inimigos espectrais, como espíritos malignos.
                     """)
                     .multilineTextAlignment(.center)
-                    .font(.custom("DejaVuSerif-Bold", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 16)))
-                    .padding(.horizontal, 35)
+                    .font(.custom("DejaVuSerif", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 18)))
+                    .padding(.horizontal, 45)
                     .padding(.bottom, 60)
                     .foregroundColor(.white)
                 
@@ -264,10 +255,6 @@ struct Feitico1View: View {
                 .buttonStyle(EstiloFeiticos())
   
                 
-                Button("VOLTAR PARA FEITIÇOS", action: mudarTelaParaDetalhes)
-                    .foregroundColor(.white)
-                    .font(.custom("DejaVuSerif-Bold", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 11)))
-                    .padding(.bottom, 50)
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -383,11 +370,6 @@ struct TreinoMovimento1View: View{
                 .ignoresSafeArea()
             VideoPlayer(player: player)
             
-//            GeometryReader { geo in
-////                PlayerView(videoName: "IMG_0036")
-//                    .frame(width: geo.size.width, height: geo.size.height)
-//            }
-            
             Text("repita o movimento")
                 .multilineTextAlignment(.center)
                 .font(.custom("WizardWorld-Simplified", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 16)))
@@ -404,10 +386,6 @@ struct TreinoMovimento1View: View{
             .font(.custom("WizardWorld-Simplified", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 11)))
             .foregroundColor(.white)
             .buttonStyle(EstiloFeiticos())
-            
-//            Button("Voltar para feitiços", action: mudarTelaParaDetalhes)
-//                .foregroundColor(.brown)
-//                .font(.custom("DejaVuSerif-Bold", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 11)))
             
             Button ( action:
                 mudarTelaParaDetalhes
@@ -454,10 +432,6 @@ struct TreinoMovimento2View: View{
             .foregroundColor(.white)
             .buttonStyle(EstiloFeiticos())
             
-//            Button("Voltar para feitiços", action: mudarTelaParaDetalhes)
-//                .foregroundColor(.brown)
-//                .font(.custom("DejaVuSerif-Bold", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 11)))
-            
             Button ( action:
                 mudarTelaParaDetalhes
             , label: {
@@ -502,10 +476,6 @@ struct TreinoMovimento3View: View{
             .foregroundColor(.white)
             .buttonStyle(EstiloFeiticos())
             
-//            Button("Voltar para feitiços", action: mudarTelaParaDetalhes)
-//                .foregroundColor(.brown)
-//                .font(.custom("DejaVuSerif-Bold", size: tamanhoDinamico(sizeCategory: sizeCategory, baseSize: 11)))
-            
             Button ( action:
                 mudarTelaParaDetalhes
             , label: {
@@ -530,10 +500,6 @@ struct Movimento1View: View{
     
     var body: some View{
         ZStack{
-//            Image("Fundo2")
-//                .resizable()
-//                .scaledToFill()
-//                .ignoresSafeArea()
             Text ("Mexa o celular em movimento circular")
         
             Image("Varinha \(currentImageIndex)")
